@@ -1,0 +1,6 @@
+* About the project
+This is a ruby on rails application created for the [[https://www.railstutorial.org/book/static_pages#sec-sample_app_setup][online rails tutorial]].
+This project follows chapter three and onward.
+A working instance of this app can be found at [[https://sampleapp7.herokuapp.com/][heroku]].
+* About the author
+Matthew Newman is an aspiring web developer. Information about him can be found at...
