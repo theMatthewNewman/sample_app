@@ -17,7 +17,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get about_path
     assert_response :success
     assert_select "title", "About | Ruby on Rails Tutorial Sample App"
-b  end
+  end
 
   test "should get contacts" do
     get contact_path
