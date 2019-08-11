@@ -6,7 +6,8 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(email:"test@email.com",name:"testingtesting123")
+    @user = User.new(email: "te4ddst@email.com",name: "testingtesting123",
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -34,7 +35,22 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should be valid email" do
-    @user.email = "notvalid"
+    addresses = %w[user@example,com user_at_foo.org user.name@example.
+                   foo@bar_baz.com foo@bar+baz.com]
+    addresses.each do |address|
+      @user.email = address
+      assert_not @user.valid?
+    end
+  end
+
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
   end
+
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
 end
